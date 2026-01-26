@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora Forense</title>
+<link rel="stylesheet" href="estilos.css">
+<!-- MathJax para LaTeX -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Fuente bonita -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="calc">
+    <h1> Calculadora Forense</h1>
+    
+  <div class="pantalla" id="pantalla">
+    
+  </div>
+
+  <div class="campos">
+    <input id="Ta" placeholder="Temp. ambiente (°C)">
+    <input id="T1" placeholder="T1 primera medición (°C)">
+    <input id="T2" placeholder="T2 segunda medición (°C)">
+    
+    <div class="tiempo">
+      <input id="h" type="number" placeholder="Horas">
+      <input id="m" type="number" placeholder="Minutos">
+    </div>
+
+    <input id="T0" value="37" placeholder="Temp. normal">
+    <input id="hora" placeholder="Hora medición (HH:MM)">
+  </div>
+
+  <button onclick="calcular()">CALCULAR</button>
+  
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
