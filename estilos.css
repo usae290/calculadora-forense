@@ -1,4 +1,6 @@
-/* ===== GENERAL ===== */
+p{
+  color: white;
+}/* ===== GENERAL ===== */
 body {
   margin: 0;
   height: 100vh;
@@ -94,3 +96,4 @@ button:hover {
     width: 92%;
   }
 }
+
