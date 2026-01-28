@@ -12,7 +12,7 @@ function calcular() {
   const pantalla = document.getElementById("pantalla");
 
   if (t2 <= 0 || !Ta || !T1 || !T2 || !T0) {
-    pantalla.innerHTML = "❌ DATOS INVÁLIDOS";
+    pantalla.innerHTML = " DATOS INVÁLIDOS";
     return;
   }
 
@@ -20,17 +20,23 @@ function calcular() {
   const k = -Math.log((T2 - Ta) / C) / t2;
   const t0 = -Math.log((T0 - Ta) / C) / k;
 
-  const min = Math.abs(Math.round(t0 * 60));
-  const hh = Math.floor(min / 60);
-  const mm = min % 60;
+  // Duración
+  const min = Math.floor(t0 * 60);
+  const absMin = Math.abs(min);
+  const hh = Math.floor(absMin / 60);
+  const mm = absMin % 60;
 
-  let texto = `${hh} h ${mm} min`;
+  let texto = `Tiempo transcurrido: ${hh} h ${mm} min`;
 
+  // RESTA DE HORA CORRECTA
   if (hora) {
     const [H, M] = hora.split(":").map(Number);
-    let total = H * 60 + M - (t0 * 60);
+
+    const minutosRestar = Math.floor(-t0 * 60);
+    let total = H * 60 + M - minutosRestar; //  AQUÍ ESTABA EL ERROR
     total = (total + 1440) % 1440;
-    texto += `<br>${String(Math.floor(total / 60)).padStart(2,"0")}:${String(Math.round(total % 60)).padStart(2,"0")}`;
+
+    texto += `<br>Hora estimada: ${String(Math.floor(total / 60)).padStart(2,"0")}:${String(total % 60).padStart(2,"0")}`;
   }
 
   pantalla.innerHTML = texto;
